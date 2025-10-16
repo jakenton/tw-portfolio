@@ -18,15 +18,9 @@ cat sample_logs.jsonl | head -n 3
 **Output:**
 
 ```
-{
-    "timestamp": "2025-10-10T09:00:00Z", "session_id": "SESS-49271", "status": "SUCCESS", "metadata": {"subject_id": "H001", "duration_ms": 12450, "processor_version": "v1.2.1"}
-}
-{
-    "timestamp": "2025-10-10T09:05:05Z", "session_id": "SESS-49272", "status": "PENDING", "metadata": {"subject_id": "H002", "duration_ms": 0, "processor_version": "v1.3.0"}
-}
-{
-    "timestamp": "2025-10-10T09:00:00Z", "session_id": "SESS-49273", "status": "SUCCESS", "metadata": {"subject_id": "H003", "duration_ms": 15020, "processor_version": "v1.3.0"}
-}
+{"timestamp": "2025-10-10T09:00:00Z", "session_id": "SESS-49271", "status": "SUCCESS", "metadata": {"subject_id": "H001", "duration_ms": 12450, "processor_version": "v1.2.1"}}
+{"timestamp": "2025-10-10T09:05:05Z", "session_id": "SESS-49272", "status": "PENDING", "metadata": {"subject_id": "H002", "duration_ms": 0, "processor_version": "v1.3.0"}}
+{"timestamp": "2025-10-10T09:00:00Z", "session_id": "SESS-49273", "status": "SUCCESS", "metadata": {"subject_id": "H003", "duration_ms": 15020, "processor_version": "v1.3.0"}}
 ```
 
 ## Step 2: Filtering by Top-Level Field (Selecting Successful Runs)
@@ -42,21 +36,11 @@ cat sample_logs.jsonl | jq 'select(.status == "SUCCESS")'
 **Output:**
 
 ```
-{
-    "timestamp": "2025-10-10T09:00:00Z", "session_id": "SESS-49271", "status": "SUCCESS", "metadata": {"subject_id": "H001", "duration_ms": 12450, "processor_version": "v1.2.1"}
-}
-{
-    "timestamp": "2025-10-10T09:15:12Z", "session_id": "SESS-49273", "status": "SUCCESS", "metadata": {"subject_id": "H003", "duration_ms": 15020, "processor_version": "v1.3.0"}
-}
-{
-    "timestamp": "2025-10-10T09:40:00Z", "session_id": "SESS-49276", "status": "SUCCESS", "metadata": {"subject_id": "H005", "duration_ms": 9800, "processor_version": "v1.2.1"}
-}
-{
-    "timestamp": "2025-10-10T09:50:00Z", "session_id": "SESS-49278", "status": "SUCCESS", "metadata": {"subject_id": "H003", "duration_ms": 11111, "processor_version": "v1.3.0"}
-}
-{
-    "timestamp": "2025-10-10T10:00:00Z", "session_id": "SESS-49280", "status": "SUCCESS", "metadata": {"subject_id": "H004", "duration_ms": 13333, "processor_version": "v1.3.0"}
-}
+{"timestamp": "2025-10-10T09:00:00Z", "session_id": "SESS-49271", "status": "SUCCESS", "metadata": {"subject_id": "H001", "duration_ms": 12450, "processor_version": "v1.2.1"}}
+{"timestamp": "2025-10-10T09:15:12Z", "session_id": "SESS-49273", "status": "SUCCESS", "metadata": {"subject_id": "H003", "duration_ms": 15020, "processor_version": "v1.3.0"}}
+{"timestamp": "2025-10-10T09:40:00Z", "session_id": "SESS-49276", "status": "SUCCESS", "metadata": {"subject_id": "H005", "duration_ms": 9800, "processor_version": "v1.2.1"}}
+{"timestamp": "2025-10-10T09:50:00Z", "session_id": "SESS-49278", "status": "SUCCESS", "metadata": {"subject_id": "H003", "duration_ms": 11111, "processor_version": "v1.3.0"}}
+{"timestamp": "2025-10-10T10:00:00Z", "session_id": "SESS-49280", "status": "SUCCESS", "metadata": {"subject_id": "H004", "duration_ms": 13333, "processor_version": "v1.3.0"}}
 ```
 
 ## Step 3: Projection and Extracting Nested Data
